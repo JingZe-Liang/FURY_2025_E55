@@ -1,0 +1,1269 @@
+/******************************************************************************
+ *
+ *  ASAP2 file:     E55_1030.a2l
+ *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use. 
+ * 
+ * Code generation for model "E55_1030".
+ *
+ * Model version              : 1.751
+ * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
+ * C source code generated on : Thu Dec 11 23:31:46 2025
+ * 
+ * Target selection: ec311.tlc
+ * Embedded hardware selection: ARM Compatible->ARM Cortex
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ *
+ * (add additional file header information here)
+ *
+ ******************************************************************************/
+
+ASAP2_VERSION  1 31   /* Version 1.31 */
+
+/begin PROJECT ECUCoderProject "ECUCoder Project"
+  
+  /begin HEADER "Header Comments go here"
+    
+  /end HEADER
+  
+  
+  /begin MODULE ModuleName  "Module Comment Goes Here"
+    
+    /begin MOD_PAR "MOD PAR Comment Goes Here"
+      
+    /end MOD_PAR
+    
+    /begin MOD_COMMON  "Mod Common Comment Here" 
+      BYTE_ORDER     MSB_LAST
+    /end MOD_COMMON
+    
+    /begin RECORD_LAYOUT Scalar_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_SWORD
+      FNC_VALUES 1 SWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_LONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_FLOAT64_IEEE
+      FNC_VALUES  1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    
+    /begin RECORD_LAYOUT Lookup1D_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_BOOLEAN
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_BYTE
+      AXIS_PTS_X  1 SBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_UBYTE
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_UWORD
+      AXIS_PTS_X  1 UWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_WORD
+      FNC_VALUES  1 SWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_WORD
+      AXIS_PTS_X  1 SWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_ULONG
+      AXIS_PTS_X  1 ULONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_SLONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_LONG
+      AXIS_PTS_X  1 SLONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_FLOAT32_IEEE
+      AXIS_PTS_X  1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_FLOAT64_IEEE
+      FNC_VALUES  1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_FLOAT64_IEEE
+      AXIS_PTS_X  1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_BOOLEAN
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT    
+    
+    /begin RECORD_LAYOUT Lookup2D_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_UBYTE
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_BYTE
+      AXIS_PTS_X  1 SBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_UWORD
+      AXIS_PTS_X  1 UWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_WORD
+      FNC_VALUES  1 SWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_WORD
+      AXIS_PTS_X  1 SWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_ULONG
+      AXIS_PTS_X  1 ULONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_LONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_LONG
+      AXIS_PTS_X  1 SLONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_FLOAT32_IEEE
+      AXIS_PTS_X 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_FLOAT64_IEEE
+      FNC_VALUES  1  FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_FLOAT64_IEEE
+      AXIS_PTS_X 1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      brake_output
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@brake_output@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      acc1_input
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@acc1_input@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      acc1
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@acc1@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      acc2_input
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@acc2_input@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      acc2
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@acc2@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      acc
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@acc@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BreakPressure_R
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@BreakPressure_R@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      MaxTempMotor_n
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@MaxTempMotor_n@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Steer
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Steer@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BreakPressure_F
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@BreakPressure_F@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Yaw_Angle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Yaw_Angle@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Pitch_Angle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Pitch_Angle@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Roll_Angle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Roll_Angle@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Yaw_Rate_d
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Yaw_Rate_d@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      velocity
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@velocity@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Mz
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Mz@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Torque_FL_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Torque_FL_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Torque_FR_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Torque_FR_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Torque_RL_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Torque_RL_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Torque_RR_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Torque_RR_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      delta_YawRate
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@delta_YawRate@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      East_Speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@East_Speed@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      North_Speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@North_Speed@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      INS_IMUAccrnX
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@INS_IMUAccrnX@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      INS_IMUAccrnY
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@INS_IMUAccrnY@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Yaw_Rate
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Yaw_Rate@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      NegTorque
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@NegTorque@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      INS_IMUAccrnZ
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@INS_IMUAccrnZ@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      INS_IMUAglRateX
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@INS_IMUAglRateX@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      INS_IMUAglRateY
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@INS_IMUAglRateY@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Torque_RR
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Torque_RR@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Torque_RL
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Torque_RL@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Torque_FL
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Torque_FL@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Torque_FR
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Torque_FR@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      To_Ground_Speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@To_Ground_Speed@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      MaxTempIGBT_n
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@MaxTempIGBT_n@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      MaxTempInverter_n
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@MaxTempInverter_n@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DeratingRatio
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@DeratingRatio@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Side_Slip_Angle_d
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Side_Slip_Angle_d@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Algorithm_Enable
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Algorithm_Enable@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      run_flag
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@run_flag@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      TargetVelocity
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@TargetVelocity@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Side_Slip_Angle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Side_Slip_Angle@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      brake_input
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@brake_input@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Heading_Angle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Heading_Angle@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      IVT_MsgCount
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@IVT_MsgCount@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Power
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Power@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Raw_Steer
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Raw_Steer@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      K3105_Alive
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      E55_1030_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@K3105_Alive@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LVBatteryVolt
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      E55_1030_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       @MemoryAddress@LVBatteryVolt@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Steer_CANOK
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       @MemoryAddress@Steer_CANOK@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      CAN_OK_GNSS
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       @MemoryAddress@CAN_OK_GNSS@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      CAN_OK_IMU
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       @MemoryAddress@CAN_OK_IMU@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SC_State
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@SC_State@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      precharge_input
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@precharge_input@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      start_input
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@start_input@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      break_transmit
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@break_transmit@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      reset_input
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@reset_input@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SC_Testpoint5
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@SC_Testpoint5@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SC_Testpoint1
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@SC_Testpoint1@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SC_Testpoint2
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@SC_Testpoint2@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SC_Testpoint3
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@SC_Testpoint3@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SC_Testpoint4
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@SC_Testpoint4@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      acc_flag
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@acc_flag@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      readyLED_output
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      E55_1030_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@readyLED_output@
+    /end MEASUREMENT
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      E55_1030_CM_double
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%15.10"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      E55_1030_CM_uint16
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%5.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      E55_1030_CM_uint8
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%3.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      E55_1030_CM_boolean
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%1.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin GROUP 
+      /* Name                   */       E55_1030
+      /* Long identifier        */       "E55_1030"
+      /* Root                    */       ROOT
+      /begin SUB_GROUP
+        Root_Function_Call_Subsystem2
+        Root_Initializationl_Subsystem
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        K3105_Alive
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_Function_Call_Subsystem2
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2"
+      /begin SUB_GROUP
+        S1_SMC
+        S1_Subsystem11
+        S1_Subsystem18
+        S1_Subsystem19
+        S1_Subsystem8
+        S1________________
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        Algorithm_Enable
+        BreakPressure_F
+        BreakPressure_R
+        DeratingRatio
+        East_Speed
+        Heading_Angle
+        INS_IMUAccrnX
+        INS_IMUAccrnY
+        INS_IMUAccrnZ
+        INS_IMUAglRateX
+        INS_IMUAglRateY
+        MaxTempIGBT_n
+        MaxTempInverter_n
+        MaxTempMotor_n
+        NegTorque
+        North_Speed
+        Pitch_Angle
+        Roll_Angle
+        SC_State
+        SC_Testpoint1
+        SC_Testpoint2
+        SC_Testpoint3
+        SC_Testpoint4
+        SC_Testpoint5
+        Side_Slip_Angle
+        Steer
+        Steer_CANOK
+        TargetVelocity
+        To_Ground_Speed
+        Torque_FL
+        Torque_FL_out
+        Torque_FR
+        Torque_FR_out
+        Torque_RL
+        Torque_RL_out
+        Torque_RR
+        Torque_RR_out
+        Yaw_Angle
+        Yaw_Rate
+        acc
+        acc1
+        acc1_input
+        acc2
+        acc2_input
+        acc_flag
+        brake_input
+        brake_output
+        break_transmit
+        delta_YawRate
+        precharge_input
+        readyLED_output
+        reset_input
+        run_flag
+        start_input
+        velocity
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_Initializationl_Subsystem
+      /* Long identifier        */       "E55_1030/Initializationl Subsystem"
+      /begin REF_MEASUREMENT
+        LVBatteryVolt
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S1_SMC
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2/SMC"
+      /begin REF_MEASUREMENT
+        Mz
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S1_Subsystem11
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2/Subsystem11"
+      /begin SUB_GROUP
+        S101_Enabled_Subsystem
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S1_Subsystem18
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2/Subsystem18"
+      /begin REF_MEASUREMENT
+        CAN_OK_GNSS
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S1_Subsystem19
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2/Subsystem19"
+      /begin REF_MEASUREMENT
+        CAN_OK_IMU
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S1_Subsystem8
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2/Subsystem8"
+      /begin SUB_GROUP
+        S112_Enabled_Subsystem
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S1________________
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2/计算理想横摆角速度和质心侧偏角"
+      /begin REF_MEASUREMENT
+        Side_Slip_Angle_d
+        Yaw_Rate_d
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S101_Enabled_Subsystem
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2/Subsystem11/Enabled Subsystem"
+      /begin REF_MEASUREMENT
+        Raw_Steer
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S112_Enabled_Subsystem
+      /* Long identifier        */       "E55_1030/Function-Call Subsystem2/Subsystem8/Enabled Subsystem"
+      /begin REF_MEASUREMENT
+        IVT_MsgCount
+        Power
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    
+  /end MODULE
+  
+  
+/end PROJECT
+/* (add any file trailer comments here) */
+/* EOF E55_1030.a2l */

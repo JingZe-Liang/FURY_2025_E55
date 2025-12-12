@@ -627,8 +627,6 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:9479"] = {rtwname: "<S1>/From118"};
 	this.rtwnameHashMap["<S1>/From119"] = {sid: "E55_1030:7630"};
 	this.sidHashMap["E55_1030:7630"] = {rtwname: "<S1>/From119"};
-	this.rtwnameHashMap["<S1>/From12"] = {sid: "E55_1030:11127"};
-	this.sidHashMap["E55_1030:11127"] = {rtwname: "<S1>/From12"};
 	this.rtwnameHashMap["<S1>/From120"] = {sid: "E55_1030:9480"};
 	this.sidHashMap["E55_1030:9480"] = {rtwname: "<S1>/From120"};
 	this.rtwnameHashMap["<S1>/From121"] = {sid: "E55_1030:9481"};
@@ -1491,10 +1489,6 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:7696"] = {rtwname: "<S1>/Goto94"};
 	this.rtwnameHashMap["<S1>/Goto95"] = {sid: "E55_1030:7697"};
 	this.sidHashMap["E55_1030:7697"] = {rtwname: "<S1>/Goto95"};
-	this.rtwnameHashMap["<S1>/Goto97"] = {sid: "E55_1030:11132"};
-	this.sidHashMap["E55_1030:11132"] = {rtwname: "<S1>/Goto97"};
-	this.rtwnameHashMap["<S1>/Goto98"] = {sid: "E55_1030:11133"};
-	this.sidHashMap["E55_1030:11133"] = {rtwname: "<S1>/Goto98"};
 	this.rtwnameHashMap["<S1>/Goto99"] = {sid: "E55_1030:1650"};
 	this.sidHashMap["E55_1030:1650"] = {rtwname: "<S1>/Goto99"};
 	this.rtwnameHashMap["<S1>/If Action Subsystem15"] = {sid: "E55_1030:1827"};
@@ -1567,8 +1561,6 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:10038"] = {rtwname: "<S1>/MATLAB Function13"};
 	this.rtwnameHashMap["<S1>/MATLAB Function14"] = {sid: "E55_1030:10043"};
 	this.sidHashMap["E55_1030:10043"] = {rtwname: "<S1>/MATLAB Function14"};
-	this.rtwnameHashMap["<S1>/MATLAB Function15"] = {sid: "E55_1030:11130"};
-	this.sidHashMap["E55_1030:11130"] = {rtwname: "<S1>/MATLAB Function15"};
 	this.rtwnameHashMap["<S1>/MATLAB Function16"] = {sid: "E55_1030:11167"};
 	this.sidHashMap["E55_1030:11167"] = {rtwname: "<S1>/MATLAB Function16"};
 	this.rtwnameHashMap["<S1>/MATLAB Function2"] = {sid: "E55_1030:8909"};
@@ -1635,8 +1627,6 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:7891"] = {rtwname: "<S1>/MeaModule27"};
 	this.rtwnameHashMap["<S1>/MeaModule29"] = {sid: "E55_1030:1917"};
 	this.sidHashMap["E55_1030:1917"] = {rtwname: "<S1>/MeaModule29"};
-	this.rtwnameHashMap["<S1>/MeaModule3"] = {sid: "E55_1030:11131"};
-	this.sidHashMap["E55_1030:11131"] = {rtwname: "<S1>/MeaModule3"};
 	this.rtwnameHashMap["<S1>/MeaModule31"] = {sid: "E55_1030:8775"};
 	this.sidHashMap["E55_1030:8775"] = {rtwname: "<S1>/MeaModule31"};
 	this.rtwnameHashMap["<S1>/MeaModule32"] = {sid: "E55_1030:8776"};
@@ -2009,8 +1999,6 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:10795"] = {rtwname: "<S1>/Terminator9"};
 	this.rtwnameHashMap["<S1>/Triggered Subsystem"] = {sid: "E55_1030:7944"};
 	this.sidHashMap["E55_1030:7944"] = {rtwname: "<S1>/Triggered Subsystem"};
-	this.rtwnameHashMap["<S1>/Unit Delay1"] = {sid: "E55_1030:11128"};
-	this.sidHashMap["E55_1030:11128"] = {rtwname: "<S1>/Unit Delay1"};
 	this.rtwnameHashMap["<S1>/Zero-Order Hold"] = {sid: "E55_1030:8908"};
 	this.sidHashMap["E55_1030:8908"] = {rtwname: "<S1>/Zero-Order Hold"};
 	this.rtwnameHashMap["<S1>/left1"] = {sid: "E55_1030:3863"};

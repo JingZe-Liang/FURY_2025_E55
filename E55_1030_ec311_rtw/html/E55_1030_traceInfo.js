@@ -627,6 +627,8 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:9479"] = {rtwname: "<S1>/From118"};
 	this.rtwnameHashMap["<S1>/From119"] = {sid: "E55_1030:7630"};
 	this.sidHashMap["E55_1030:7630"] = {rtwname: "<S1>/From119"};
+	this.rtwnameHashMap["<S1>/From12"] = {sid: "E55_1030:11237"};
+	this.sidHashMap["E55_1030:11237"] = {rtwname: "<S1>/From12"};
 	this.rtwnameHashMap["<S1>/From120"] = {sid: "E55_1030:9480"};
 	this.sidHashMap["E55_1030:9480"] = {rtwname: "<S1>/From120"};
 	this.rtwnameHashMap["<S1>/From121"] = {sid: "E55_1030:9481"};
@@ -685,8 +687,6 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:10583"] = {rtwname: "<S1>/From145"};
 	this.rtwnameHashMap["<S1>/From146"] = {sid: "E55_1030:11214"};
 	this.sidHashMap["E55_1030:11214"] = {rtwname: "<S1>/From146"};
-	this.rtwnameHashMap["<S1>/From147"] = {sid: "E55_1030:11227"};
-	this.sidHashMap["E55_1030:11227"] = {rtwname: "<S1>/From147"};
 	this.rtwnameHashMap["<S1>/From148"] = {sid: "E55_1030:9656"};
 	this.sidHashMap["E55_1030:9656"] = {rtwname: "<S1>/From148"};
 	this.rtwnameHashMap["<S1>/From15"] = {sid: "E55_1030:7943"};
@@ -1525,8 +1525,8 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:10972"] = {rtwname: "<S1>/Logical Operator13"};
 	this.rtwnameHashMap["<S1>/Logical Operator14"] = {sid: "E55_1030:10973"};
 	this.sidHashMap["E55_1030:10973"] = {rtwname: "<S1>/Logical Operator14"};
-	this.rtwnameHashMap["<S1>/Logical Operator15"] = {sid: "E55_1030:11232"};
-	this.sidHashMap["E55_1030:11232"] = {rtwname: "<S1>/Logical Operator15"};
+	this.rtwnameHashMap["<S1>/Logical Operator16"] = {sid: "E55_1030:11238"};
+	this.sidHashMap["E55_1030:11238"] = {rtwname: "<S1>/Logical Operator16"};
 	this.rtwnameHashMap["<S1>/Logical Operator2"] = {sid: "E55_1030:10714"};
 	this.sidHashMap["E55_1030:10714"] = {rtwname: "<S1>/Logical Operator2"};
 	this.rtwnameHashMap["<S1>/Logical Operator3"] = {sid: "E55_1030:10715"};
@@ -1769,8 +1769,8 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["E55_1030:10744"] = {rtwname: "<S1>/Product15"};
 	this.rtwnameHashMap["<S1>/Product16"] = {sid: "E55_1030:10745"};
 	this.sidHashMap["E55_1030:10745"] = {rtwname: "<S1>/Product16"};
-	this.rtwnameHashMap["<S1>/Product17"] = {sid: "E55_1030:11226"};
-	this.sidHashMap["E55_1030:11226"] = {rtwname: "<S1>/Product17"};
+	this.rtwnameHashMap["<S1>/Product17"] = {sid: "E55_1030:11242"};
+	this.sidHashMap["E55_1030:11242"] = {rtwname: "<S1>/Product17"};
 	this.rtwnameHashMap["<S1>/Product2"] = {sid: "E55_1030:9562"};
 	this.sidHashMap["E55_1030:9562"] = {rtwname: "<S1>/Product2"};
 	this.rtwnameHashMap["<S1>/Product3"] = {sid: "E55_1030:10746"};

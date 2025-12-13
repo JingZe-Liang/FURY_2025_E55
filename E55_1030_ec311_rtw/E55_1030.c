@@ -3,9 +3,9 @@
  *
  * FILE    : E55_1030.c
  *
- * VERSION : 1.753
+ * VERSION : 1.756
  *
- * DATE    : Fri Dec 12 14:31:16 2025
+ * DATE    : Sat Dec 13 13:58:07 2025
  *
  * Copyright 2011-2023 ECUCoder. All Rights Reserved.
  */
@@ -42,7 +42,7 @@ real_T acc2;                           /* '<S1>/Saturation33' */
 real_T acc;                            /* '<S1>/Saturation34' */
 real_T BreakPressure_R;                /* '<S1>/Saturation28' */
 real_T MaxTempMotor_n;                 /* '<S1>/Max2' */
-real_T Steer;                          /* '<S1>/Product17' */
+real_T Steer;                          /* '<S1>/Add5' */
 real_T BreakPressure_F;                /* '<S1>/Saturation27' */
 real_T Yaw_Angle;                      /* '<S1>/Product13' */
 real_T Pitch_Angle;                    /* '<S1>/Product12' */
@@ -314,7 +314,6 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   real_T rtb_Divide3;
   real_T rtb_avg;
   real_T rtb_Gain19;
-  boolean_T rtb_NOT2;
   uint16_T rtb_Saturation41;
   int32_T rtb_DataTypeConversion1;
   real_T rtb_Saturation29;
@@ -322,10 +321,11 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   real_T rtb_Gain3;
   int32_T rtb_acc_flag;
   real_T rtb_Sign_n;
+  boolean_T rtb_LogicalOperator16;
   real_T rtb_Product;
   real_T rtb_Product3;
   real_T rtb_Product1_j;
-  real_T rtb_factor_R;
+  real_T rtb_Product2;
   real_T rtb_factor_F_d;
   uint8_T Merge4;
   int16_T TargetVelocity_kwfo;
@@ -955,8 +955,8 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
 
     switch (E55_1030_DW.bitsForTID1.is_S) {
      case E55_1030_IN_S1:
-      rtb_NOT2 = (SC_State && precharge_input);
-      if (rtb_NOT2) {
+      rtb_LogicalOperator16 = (SC_State && precharge_input);
+      if (rtb_LogicalOperator16) {
         E55_1030_DW.bitsForTID1.is_S = E55_1030_IN_S2;
       } else {
         run_flag = 1.0;
@@ -965,9 +965,9 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
       break;
 
      case E55_1030_IN_S2:
-      rtb_NOT2 = (start_input && (brake_output > 5.0) && (brake_output < 99.0) &&
-                  (E55_1030_B.CANUnpack10_o1 == 2.0));
-      if (rtb_NOT2) {
+      rtb_LogicalOperator16 = (start_input && (brake_output > 5.0) &&
+        (brake_output < 99.0) && (E55_1030_B.CANUnpack10_o1 == 2.0));
+      if (rtb_LogicalOperator16) {
         E55_1030_DW.bitsForTID1.is_S = E55_1030_IN_S3;
       } else if (!SC_State) {
         E55_1030_DW.bitsForTID1.is_S = E55_1030_IN_S1;
@@ -2405,16 +2405,18 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
     E55_1030_DW.bitsForTID1.is_active_c1_E55_1030 = 1U;
     E55_1030_DW.bitsForTID1.is_c1_E55_1030 = E55_1030_IN_S1;
   } else if (E55_1030_DW.bitsForTID1.is_c1_E55_1030 == E55_1030_IN_S1) {
-    rtb_NOT2 = ((run_flag == 3.0) && (BreakPressure_R > 0.9) && (acc < 2.5));
-    if (rtb_NOT2) {
+    rtb_LogicalOperator16 = ((run_flag == 3.0) && (BreakPressure_R > 0.9) &&
+      (acc < 2.5));
+    if (rtb_LogicalOperator16) {
       E55_1030_DW.bitsForTID1.is_c1_E55_1030 = E55_1030_IN_S2;
     } else {
       E55_1030_B.flag_regen_p = 0.0;
     }
   } else {
     /* case IN_S2: */
-    rtb_NOT2 = ((run_flag == 3.0) && (BreakPressure_R < 0.85) && (acc < 1.0));
-    if (rtb_NOT2) {
+    rtb_LogicalOperator16 = ((run_flag == 3.0) && (BreakPressure_R < 0.85) &&
+      (acc < 1.0));
+    if (rtb_LogicalOperator16) {
       E55_1030_DW.bitsForTID1.is_c1_E55_1030 = E55_1030_IN_S1;
     } else {
       E55_1030_B.flag_regen_p = 1.0;
@@ -3423,9 +3425,9 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   } else {
     switch (E55_1030_DW.bitsForTID1.is_c24_E55_1030) {
      case E55_1030_IN_S1:
-      rtb_NOT2 = ((E55_1030_DW.temporalCounter_i1 >= 2000U) && precharge_input &&
-                  reset_input);
-      if (rtb_NOT2) {
+      rtb_LogicalOperator16 = ((E55_1030_DW.temporalCounter_i1 >= 2000U) &&
+        precharge_input && reset_input);
+      if (rtb_LogicalOperator16) {
         E55_1030_DW.bitsForTID1.is_c24_E55_1030 = E55_1030_IN_S2;
         E55_1030_DW.temporalCounter_i1 = 0U;
       } else {
@@ -3437,9 +3439,9 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
       if (run_flag != 3.0) {
         E55_1030_DW.bitsForTID1.is_c24_E55_1030 = E55_1030_IN_S3;
       } else {
-        rtb_NOT2 = ((E55_1030_DW.temporalCounter_i1 >= 2000U) && precharge_input
-                    && reset_input);
-        if (rtb_NOT2) {
+        rtb_LogicalOperator16 = ((E55_1030_DW.temporalCounter_i1 >= 2000U) &&
+          precharge_input && reset_input);
+        if (rtb_LogicalOperator16) {
           E55_1030_DW.bitsForTID1.is_c24_E55_1030 = E55_1030_IN_S1;
           E55_1030_DW.temporalCounter_i1 = 0U;
         } else {
@@ -3508,9 +3510,9 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   } else {
     switch (E55_1030_DW.bitsForTID1.is_c3_E55_1030) {
      case E55_1030_IN_S1:
-      rtb_NOT2 = ((E55_1030_DW.temporalCounter_i1_j >= 2000U) && start_input &&
-                  reset_input);
-      if (rtb_NOT2) {
+      rtb_LogicalOperator16 = ((E55_1030_DW.temporalCounter_i1_j >= 2000U) &&
+        start_input && reset_input);
+      if (rtb_LogicalOperator16) {
         E55_1030_B.one_motor = 0.0;
         E55_1030_DW.bitsForTID1.is_c3_E55_1030 = E55_1030_IN_S2;
         E55_1030_DW.temporalCounter_i1_j = 0U;
@@ -3524,9 +3526,9 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
         E55_1030_B.one_motor = 1.0;
         E55_1030_DW.bitsForTID1.is_c3_E55_1030 = E55_1030_IN_S3;
       } else {
-        rtb_NOT2 = ((E55_1030_DW.temporalCounter_i1_j >= 2000U) && start_input &&
-                    reset_input);
-        if (rtb_NOT2) {
+        rtb_LogicalOperator16 = ((E55_1030_DW.temporalCounter_i1_j >= 2000U) &&
+          start_input && reset_input);
+        if (rtb_LogicalOperator16) {
           E55_1030_B.one_motor = 1.0;
           E55_1030_DW.bitsForTID1.is_c3_E55_1030 = E55_1030_IN_S1;
           E55_1030_DW.temporalCounter_i1_j = 0U;
@@ -5323,13 +5325,7 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   /* Sum: '<S1>/Add5' incorporates:
    *  Constant: '<S1>/Constant2'
    */
-  rtb_Gain19 = Raw_Steer + -377.0;
-
-  /* Logic: '<S1>/Logical Operator15' */
-  rtb_NOT2 = (Algorithm_Enable == 0.0);
-
-  /* Product: '<S1>/Product17' */
-  Steer = rtb_NOT2 ? rtb_Gain19 : 0.0;
+  Steer = Raw_Steer + -377.0;
 
   /* Saturate: '<S1>/Saturation9' */
   rtb_Gain19 = fmin(E55_1030_B.AnalogInput, 5000.0);
@@ -5372,7 +5368,7 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   rtb_Divide3 = rtb_Sign_n * rtb_avg;
 
   /* MATLAB Function: '<S8>/MATLAB Function14' */
-  E55_1030_MATLABFunction14(rtb_avg, &rtb_factor_R);
+  E55_1030_MATLABFunction14(rtb_avg, &rtb_Gain19);
 
   /* Switch: '<S8>/Switch1' incorporates:
    *  Constant: '<S8>/Constant'
@@ -5382,25 +5378,31 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
     rtb_Product1_j = 0.0;
     rtb_Product = 0.0;
     rtb_Product3 = 0.0;
-    rtb_factor_R = 0.0;
+    rtb_Product2 = 0.0;
   } else {
+    /* Logic: '<S1>/Logical Operator16' */
+    rtb_LogicalOperator16 = (Algorithm_Enable == 0.0);
+
+    /* Product: '<S1>/Product17' */
+    rtb_Gain3 = rtb_LogicalOperator16 ? Steer : 0.0;
+
     /* Lookup_n-D: '<S8>/1-D Lookup Table4' */
-    rtb_Product1_j = look1_binlx(Steer, E55_1030_ConstP.pooled3,
+    rtb_Product1_j = look1_binlx(rtb_Gain3, E55_1030_ConstP.pooled3,
       E55_1030_ConstP.uDLookupTable4_tableData, 7U);
 
     /* Saturate: '<S1>/Saturation31' */
     if (MaxTempMotor_n > 200.0) {
-      rtb_Gain19 = 200.0;
+      rtb_Product2 = 200.0;
     } else if (MaxTempMotor_n < 0.0) {
-      rtb_Gain19 = 0.0;
+      rtb_Product2 = 0.0;
     } else {
-      rtb_Gain19 = MaxTempMotor_n;
+      rtb_Product2 = MaxTempMotor_n;
     }
 
     /* End of Saturate: '<S1>/Saturation31' */
 
     /* Lookup_n-D: '<S113>/1-D Lookup Table1' */
-    rtb_Gain19 = look1_binlx(rtb_Gain19, E55_1030_ConstP.pooled5,
+    rtb_Product2 = look1_binlx(rtb_Product2, E55_1030_ConstP.pooled5,
       E55_1030_ConstP.pooled4, 3U);
 
     /* Saturate: '<S113>/Saturation' */
@@ -5434,7 +5436,7 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
     rtb_Product = rtb_Product * 9.5492965855137211 / rtb_Product3;
 
     /* MinMax: '<S113>/Min' */
-    rtb_Product = fmin(rtb_Product, rtb_Gain19);
+    rtb_Product = fmin(rtb_Product, rtb_Product2);
 
     /* Gain: '<S1>/Gain21' */
     rtb_Product *= 0.95;
@@ -5449,20 +5451,20 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
     rtb_Product *= rtb_Divide3;
 
     /* Product: '<S8>/Product3' */
-    rtb_Product3 = rtb_Product * rtb_Product1_j * rtb_factor_R;
+    rtb_Product3 = rtb_Product * rtb_Product1_j * rtb_Gain19;
 
     /* Lookup_n-D: '<S8>/1-D Lookup Table5' */
-    rtb_Gain19 = look1_binlx(Steer, E55_1030_ConstP.pooled3,
+    rtb_Gain3 = look1_binlx(rtb_Gain3, E55_1030_ConstP.pooled3,
       E55_1030_ConstP.uDLookupTable5_tableData, 7U);
 
     /* Product: '<S8>/Product2' */
-    rtb_factor_R *= rtb_Product * rtb_Gain19;
+    rtb_Product2 = rtb_Product * rtb_Gain3 * rtb_Gain19;
 
     /* Product: '<S8>/Product1' */
     rtb_Product1_j *= rtb_Product * rtb_factor_F_d;
 
     /* Product: '<S8>/Product' */
-    rtb_Product = rtb_Product * rtb_factor_F_d * rtb_Gain19;
+    rtb_Product = rtb_Product * rtb_factor_F_d * rtb_Gain3;
 
     /* Saturate: '<S8>/Saturation' */
     if (rtb_Product1_j > 2500.0) {
@@ -5489,11 +5491,11 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
       }
     }
 
-    if (rtb_factor_R > 2500.0) {
-      rtb_factor_R = 2500.0;
+    if (rtb_Product2 > 2500.0) {
+      rtb_Product2 = 2500.0;
     } else {
-      if (rtb_factor_R < 0.0) {
-        rtb_factor_R = 0.0;
+      if (rtb_Product2 < 0.0) {
+        rtb_Product2 = 0.0;
       }
     }
 
@@ -5513,11 +5515,11 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
     /* Product: '<S8>/Product5' */
     rtb_factor_F_d *= rtb_Sign_n;
     rtb_Product3 = rtb_factor_F_d;
-    rtb_factor_F_d = rtb_factor_R;
+    rtb_factor_F_d = rtb_Product2;
 
     /* Product: '<S8>/Product5' */
     rtb_factor_F_d *= rtb_Sign_n;
-    rtb_factor_R = rtb_factor_F_d;
+    rtb_Product2 = rtb_factor_F_d;
   }
 
   /* End of Switch: '<S8>/Switch1' */
@@ -5629,22 +5631,22 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   /* End of Outputs for SubSystem: '<S1>/If Action Subsystem15' */
 
   /* Logic: '<S1>/Logical Operator9' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product13' */
-  Yaw_Angle = rtb_NOT2 ? E55_1030_B.Heading_Angle_m : 0.0;
+  Yaw_Angle = rtb_LogicalOperator16 ? E55_1030_B.Heading_Angle_m : 0.0;
 
   /* Logic: '<S1>/Logical Operator8' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product12' */
-  Pitch_Angle = rtb_NOT2 ? E55_1030_B.Pitch_Angle_h : 0.0;
+  Pitch_Angle = rtb_LogicalOperator16 ? E55_1030_B.Pitch_Angle_h : 0.0;
 
   /* Logic: '<S1>/Logical Operator7' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product11' */
-  Roll_Angle = rtb_NOT2 ? E55_1030_B.Roll_Angle_f : 0.0;
+  Roll_Angle = rtb_LogicalOperator16 ? E55_1030_B.Roll_Angle_f : 0.0;
 
   /* MATLAB Function: '<S1>/MATLAB Function10' */
   rtb_DataTypeConversion1 = ((Yaw_Angle != -360.0) || (Pitch_Angle != -360.0) ||
@@ -6467,7 +6469,7 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   E55_1030_B.Gain38[3] = 102.0408163265306 * rtb_TappedDelay3_idx_1;
 
   /* Switch: '<S1>/Switch' */
-  rtb_TappedDelay3_idx_1 = rtb_factor_R;
+  rtb_TappedDelay3_idx_1 = rtb_Product2;
 
   /* Gain: '<S1>/Gain34' */
   Torque_RR_out = rtb_TappedDelay3_idx_1;
@@ -6573,11 +6575,11 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   }
 
   if (rtb_TappedDelay1_idx_3 > 1500.0) {
-    rtb_factor_R = 1500.0;
+    rtb_Product2 = 1500.0;
   } else if (rtb_TappedDelay1_idx_3 < 0.0) {
-    rtb_factor_R = 0.0;
+    rtb_Product2 = 0.0;
   } else {
-    rtb_factor_R = rtb_TappedDelay1_idx_3;
+    rtb_Product2 = rtb_TappedDelay1_idx_3;
   }
 
   /* End of Saturate: '<S103>/Saturation' */
@@ -6800,16 +6802,16 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   rtb_TappedDelay4_idx_8 = 57.295779513082323 * rtb_TappedDelay5_idx_0;
 
   /* Logic: '<S1>/Logical Operator11' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product15' */
-  East_Speed = rtb_NOT2 ? E55_1030_B.East_Speed_i : 0.0;
+  East_Speed = rtb_LogicalOperator16 ? E55_1030_B.East_Speed_i : 0.0;
 
   /* Logic: '<S1>/Logical Operator10' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product14' */
-  North_Speed = rtb_NOT2 ? E55_1030_B.North_Speed_d : 0.0;
+  North_Speed = rtb_LogicalOperator16 ? E55_1030_B.North_Speed_d : 0.0;
 
   /* Switch: '<S98>/Switch' incorporates:
    *  Constant: '<S98>/Constant'
@@ -6823,10 +6825,10 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   /* End of Switch: '<S98>/Switch' */
 
   /* Logic: '<S1>/Logical Operator1' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product3' */
-  INS_IMUAccrnX = rtb_NOT2 ? E55_1030_B.INS_IMUAccrnX_o : 0.0;
+  INS_IMUAccrnX = rtb_LogicalOperator16 ? E55_1030_B.INS_IMUAccrnX_o : 0.0;
 
   /* Switch: '<S98>/Switch1' incorporates:
    *  Constant: '<S98>/Constant'
@@ -6849,10 +6851,10 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   /* End of Switch: '<S98>/Switch1' */
 
   /* Logic: '<S1>/Logical Operator2' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product4' */
-  INS_IMUAccrnY = rtb_NOT2 ? E55_1030_B.INS_IMUAccrnY_o : 0.0;
+  INS_IMUAccrnY = rtb_LogicalOperator16 ? E55_1030_B.INS_IMUAccrnY_o : 0.0;
 
   /* Switch: '<S98>/Switch6' incorporates:
    *  Constant: '<S98>/Constant'
@@ -6866,10 +6868,10 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   /* End of Switch: '<S98>/Switch6' */
 
   /* Logic: '<S1>/Logical Operator6' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product10' */
-  Yaw_Rate = rtb_NOT2 ? E55_1030_B.INS_IMUAglRateZ : 0.0;
+  Yaw_Rate = rtb_LogicalOperator16 ? E55_1030_B.INS_IMUAglRateZ : 0.0;
 
   /* Switch: '<S98>/Switch8' incorporates:
    *  Constant: '<S98>/Constant'
@@ -6990,22 +6992,22 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   rtb_TappedDelay1_idx_5 = 0.1 * rtb_TappedDelay4_idx_1;
 
   /* Logic: '<S1>/Logical Operator3' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product5' */
-  INS_IMUAccrnZ = rtb_NOT2 ? E55_1030_B.INS_IMUAccrnZ_d : 0.0;
+  INS_IMUAccrnZ = rtb_LogicalOperator16 ? E55_1030_B.INS_IMUAccrnZ_d : 0.0;
 
   /* Logic: '<S1>/Logical Operator4' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product6' */
-  INS_IMUAglRateX = rtb_NOT2 ? E55_1030_B.INS_IMUAglRateX_n : 0.0;
+  INS_IMUAglRateX = rtb_LogicalOperator16 ? E55_1030_B.INS_IMUAglRateX_n : 0.0;
 
   /* Logic: '<S1>/Logical Operator5' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product9' */
-  INS_IMUAglRateY = rtb_NOT2 ? E55_1030_B.INS_IMUAglRateY_i : 0.0;
+  INS_IMUAglRateY = rtb_LogicalOperator16 ? E55_1030_B.INS_IMUAglRateY_i : 0.0;
 
   /* Sum: '<S1>/Sum of Elements7' */
   rtb_TappedDelay7_idx_0 += rtb_TappedDelay7_idx_1;
@@ -7188,10 +7190,10 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   Torque_FR = 0.025 * rtb_TappedDelay4_idx_1;
 
   /* Logic: '<S1>/Logical Operator12' */
-  rtb_NOT2 = (K3105_Alive == 0.0);
+  rtb_LogicalOperator16 = (K3105_Alive == 0.0);
 
   /* Product: '<S1>/Product16' */
-  To_Ground_Speed = rtb_NOT2 ? E55_1030_B.To_Ground_Speed_n : 0.0;
+  To_Ground_Speed = rtb_LogicalOperator16 ? E55_1030_B.To_Ground_Speed_n : 0.0;
 
   /* Gain: '<S1>/Gain2' */
   rtb_TappedDelay4_idx_1 = 0.001 * Power;
@@ -7316,34 +7318,34 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   rtb_TappedDelay6_idx_0 = fabs(E55_1030_B.CANUnpack_o1);
 
   /* Logic: '<S1>/NOT3' */
-  rtb_NOT2 = (E55_1030_B.CANUnpack_o2 == 0.0);
+  rtb_LogicalOperator16 = (E55_1030_B.CANUnpack_o2 == 0.0);
 
   /* DataTypeConversion: '<S1>/Data Type Conversion13' */
-  rtb_TappedDelay4_idx_1 = rtb_NOT2;
+  rtb_TappedDelay4_idx_1 = rtb_LogicalOperator16;
 
   /* Logic: '<S1>/NOT' */
-  rtb_NOT2 = (E55_1030_B.CANUnpack_o2_k == 0.0);
+  rtb_LogicalOperator16 = (E55_1030_B.CANUnpack_o2_k == 0.0);
 
   /* DataTypeConversion: '<S1>/Data Type Conversion8' */
-  rtb_TappedDelay1_idx_1 = rtb_NOT2;
+  rtb_TappedDelay1_idx_1 = rtb_LogicalOperator16;
 
   /* Gain: '<S1>/Gain7' */
   rtb_TappedDelay1_idx_1 *= 8.0;
 
   /* Logic: '<S1>/NOT1' */
-  rtb_NOT2 = (E55_1030_B.CANUnpack_o2_i == 0.0);
+  rtb_LogicalOperator16 = (E55_1030_B.CANUnpack_o2_i == 0.0);
 
   /* DataTypeConversion: '<S1>/Data Type Conversion12' */
-  rtb_TappedDelay1_idx_3 = rtb_NOT2;
+  rtb_TappedDelay1_idx_3 = rtb_LogicalOperator16;
 
   /* Gain: '<S1>/Gain8' */
   rtb_TappedDelay1_idx_3 *= 4.0;
 
   /* Logic: '<S1>/NOT2' */
-  rtb_NOT2 = (E55_1030_B.CANUnpack_o2_p == 0.0);
+  rtb_LogicalOperator16 = (E55_1030_B.CANUnpack_o2_p == 0.0);
 
   /* DataTypeConversion: '<S1>/Data Type Conversion9' */
-  rtb_TappedDelay1_idx_2 = rtb_NOT2;
+  rtb_TappedDelay1_idx_2 = rtb_LogicalOperator16;
 
   /* Gain: '<S1>/Gain9' */
   rtb_TappedDelay1_idx_2 *= 2.0;
@@ -8491,7 +8493,7 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
     E55_1030_DW.RateTransition17_1_Buffer = rtb_TappedDelay2_idx_0;
 
     /* RateTransition generated from: '<Root>/Rate Transition8' */
-    E55_1030_DW.RateTransition8_4_Buffer = rtb_factor_R;
+    E55_1030_DW.RateTransition8_4_Buffer = rtb_Product2;
 
     /* RateTransition generated from: '<Root>/Rate Transition8' */
     E55_1030_DW.RateTransition8_3_Buffer = rtb_Product3;

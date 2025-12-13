@@ -3,9 +3,9 @@
  *
  * FILE    : E55_1030.h
  *
- * VERSION : 1.753
+ * VERSION : 1.756
  *
- * DATE    : Fri Dec 12 14:31:16 2025
+ * DATE    : Sat Dec 13 13:58:07 2025
  *
  * Copyright 2011-2023 ECUCoder. All Rights Reserved.
  */
@@ -700,7 +700,7 @@ extern real_T acc2;                    /* '<S1>/Saturation33' */
 extern real_T acc;                     /* '<S1>/Saturation34' */
 extern real_T BreakPressure_R;         /* '<S1>/Saturation28' */
 extern real_T MaxTempMotor_n;          /* '<S1>/Max2' */
-extern real_T Steer;                   /* '<S1>/Product17' */
+extern real_T Steer;                   /* '<S1>/Add5' */
 extern real_T BreakPressure_F;         /* '<S1>/Saturation27' */
 extern real_T Yaw_Angle;               /* '<S1>/Product13' */
 extern real_T Pitch_Angle;             /* '<S1>/Product12' */

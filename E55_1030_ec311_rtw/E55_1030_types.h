@@ -3,9 +3,9 @@
  *
  * FILE    : E55_1030_types.h
  *
- * VERSION : 1.756
+ * VERSION : 1.759
  *
- * DATE    : Sat Dec 13 13:58:07 2025
+ * DATE    : Sat Dec 13 14:30:39 2025
  *
  * Copyright 2011-2023 ECUCoder. All Rights Reserved.
  */
@@ -206,8 +206,8 @@ typedef struct {
 
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_struct_BqNsj1thukEuBAb6b3MHnD_
-#define DEFINED_TYPEDEF_FOR_struct_BqNsj1thukEuBAb6b3MHnD_
+#ifndef DEFINED_TYPEDEF_FOR_struct_nnvHif9eW48zc1voLBO50_
+#define DEFINED_TYPEDEF_FOR_struct_nnvHif9eW48zc1voLBO50_
 
 typedef struct {
   real_T Break;
@@ -216,12 +216,12 @@ typedef struct {
   real_T runflag;
   real_T SOC;
   real_T velocity;
-  real_T SteerAngle;
+  real_T Steer;
   real_T Throttle;
   boolean_T PrechargeInput;
   boolean_T StartInput;
   boolean_T ResetInput;
-} struct_BqNsj1thukEuBAb6b3MHnD;
+} struct_nnvHif9eW48zc1voLBO50;
 
 #endif
 

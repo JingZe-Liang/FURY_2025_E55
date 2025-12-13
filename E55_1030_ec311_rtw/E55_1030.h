@@ -3,9 +3,9 @@
  *
  * FILE    : E55_1030.h
  *
- * VERSION : 1.756
+ * VERSION : 1.759
  *
- * DATE    : Sat Dec 13 13:58:07 2025
+ * DATE    : Sat Dec 13 14:30:39 2025
  *
  * Copyright 2011-2023 ECUCoder. All Rights Reserved.
  */
@@ -117,7 +117,7 @@ typedef struct {
   real_T AMKSpeedFR;                   /* '<Root>/Rate Transition12' */
   real_T AMKSpeedFL;                   /* '<Root>/Rate Transition12' */
   real_T Throttle_g;                   /* '<Root>/Rate Transition13' */
-  real_T SteerAngle;                   /* '<Root>/Rate Transition13' */
+  real_T Steer_n;                      /* '<Root>/Rate Transition13' */
   real_T velocity_b;                   /* '<Root>/Rate Transition13' */
   real_T SOC;                          /* '<Root>/Rate Transition13' */
   real_T runflag;                      /* '<Root>/Rate Transition13' */

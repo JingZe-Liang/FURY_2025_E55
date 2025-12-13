@@ -3,9 +3,9 @@
  *
  * FILE    : E55_1030.c
  *
- * VERSION : 1.756
+ * VERSION : 1.759
  *
- * DATE    : Sat Dec 13 13:58:07 2025
+ * DATE    : Sat Dec 13 14:30:39 2025
  *
  * Copyright 2011-2023 ECUCoder. All Rights Reserved.
  */
@@ -6945,6 +6945,15 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   /* SignalConversion generated from: '<S1>/CAN2 0x189 右后' */
   rtb_Sign_n = rtb_TappedDelay4_idx_1;
 
+  /* Logic: '<S1>/Logical Operator15' */
+  rtb_LogicalOperator16 = (Algorithm_Enable == 0.0);
+
+  /* Product: '<S1>/Product18' */
+  rtb_TappedDelay4_idx_1 = rtb_LogicalOperator16 ? Steer : 0.0;
+
+  /* SignalConversion generated from: '<S1>/CAN0 CAN1 0x559 车辆信息' */
+  rtb_TappedDelay1_idx_4 = rtb_TappedDelay4_idx_1;
+
   /* DataTypeConversion: '<S1>/Data Type Conversion11' */
   rtb_factor_F_d = fabs(TargetVelocity);
   if (rtb_factor_F_d < 4.503599627370496E+15) {
@@ -6974,7 +6983,7 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   rtb_TappedDelay4_idx_1 += E55_1030_DW.TappedDelay4_X_h[9];
 
   /* Gain: '<S98>/Gain4' */
-  rtb_TappedDelay1_idx_4 = 0.1 * rtb_TappedDelay4_idx_1;
+  rtb_TappedDelay1_idx_5 = 0.1 * rtb_TappedDelay4_idx_1;
 
   /* Sum: '<S98>/Sum of Elements3' */
   rtb_TappedDelay4_idx_1 = E55_1030_DW.TappedDelay3_X_k[0];
@@ -6989,7 +6998,7 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   rtb_TappedDelay4_idx_1 += E55_1030_DW.TappedDelay3_X_k[9];
 
   /* Gain: '<S98>/Gain3' */
-  rtb_TappedDelay1_idx_5 = 0.1 * rtb_TappedDelay4_idx_1;
+  rtb_TappedDelay1_idx_6 = 0.1 * rtb_TappedDelay4_idx_1;
 
   /* Logic: '<S1>/Logical Operator3' */
   rtb_LogicalOperator16 = (K3105_Alive == 0.0);
@@ -8457,7 +8466,7 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
     E55_1030_DW.RateTransition13_8_Buffer = acc;
 
     /* RateTransition generated from: '<Root>/Rate Transition13' */
-    E55_1030_DW.RateTransition13_7_Buffer = Steer;
+    E55_1030_DW.RateTransition13_7_Buffer = rtb_TappedDelay1_idx_4;
 
     /* RateTransition generated from: '<Root>/Rate Transition13' */
     E55_1030_DW.RateTransition13_6_Buffer = rtb_TappedDelay4_idx_2;
@@ -8484,10 +8493,10 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
     E55_1030_DW.RateTransition15_1_Buffer = INS_IMUAccrnX;
 
     /* RateTransition generated from: '<Root>/Rate Transition17' */
-    E55_1030_DW.RateTransition17_3_Buffer = rtb_TappedDelay1_idx_4;
+    E55_1030_DW.RateTransition17_3_Buffer = rtb_TappedDelay1_idx_5;
 
     /* RateTransition generated from: '<Root>/Rate Transition17' */
-    E55_1030_DW.RateTransition17_2_Buffer = rtb_TappedDelay1_idx_5;
+    E55_1030_DW.RateTransition17_2_Buffer = rtb_TappedDelay1_idx_6;
 
     /* RateTransition generated from: '<Root>/Rate Transition17' */
     E55_1030_DW.RateTransition17_1_Buffer = rtb_TappedDelay2_idx_0;
@@ -10385,7 +10394,7 @@ void E55_1030_step3(void)              /* Sample time: [0.01s, 0.0s] */
   E55_1030_B.Throttle_g = E55_1030_DW.RateTransition13_8_Buffer;
 
   /* RateTransition generated from: '<Root>/Rate Transition13' */
-  E55_1030_B.SteerAngle = E55_1030_DW.RateTransition13_7_Buffer;
+  E55_1030_B.Steer_n = E55_1030_DW.RateTransition13_7_Buffer;
 
   /* RateTransition generated from: '<Root>/Rate Transition13' */
   E55_1030_B.velocity_b = E55_1030_DW.RateTransition13_6_Buffer;
@@ -13189,7 +13198,7 @@ void E55_1030_step3(void)              /* Sample time: [0.01s, 0.0s] */
       real64_T outValue = 0;
 
       {
-        real64_T result = E55_1030_B.SteerAngle;
+        real64_T result = E55_1030_B.Steer_n;
 
         /* no offset to apply */
         result = result * (1 / 0.1);

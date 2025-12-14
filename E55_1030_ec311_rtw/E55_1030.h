@@ -3,9 +3,9 @@
  *
  * FILE    : E55_1030.h
  *
- * VERSION : 1.759
+ * VERSION : 1.762
  *
- * DATE    : Sat Dec 13 14:30:39 2025
+ * DATE    : Sun Dec 14 14:52:15 2025
  *
  * Copyright 2011-2023 ECUCoder. All Rights Reserved.
  */
@@ -605,42 +605,25 @@ typedef struct {
    */
   real_T uDLookupTable_bp01Data[473];
 
-  /* Expression: [-12.75,-9.7,-4.9,0.95,8.9,15.2,18,18.4]
-   * Referenced by: '<S1>/左轮上行'
+  /* Expression: [-18.8,-17.2,-15.7,-12,-10.4,-9.05,-4.55,-3.1,-2.0,0,1.0,2.6,4.2,5.6,7.9,9.55,12.55,14.55,17.2,18.3]
+   * Referenced by: '<S1>/左轮'
    */
-  real_T _tableData[8];
+  real_T _tableData[20];
 
-  /* Pooled Parameter (Expression: [-100,-60,-30,0,30,60,85,95])
-   * Referenced by:
-   *   '<S1>/右轮上行'
-   *   '<S1>/左轮上行'
+  /* Expression: [-135,-120,-105,-90,-75,-60,-45,-30,-15,0,15,30,45,60,75,90,105,120,135,145]
+   * Referenced by: '<S1>/左轮'
    */
-  real_T pooled32[8];
+  real_T _bp01Data[20];
 
-  /* Expression: [-12.5,-8.9,-4.55,0.85,9,15.4,18.35,18.35]
-   * Referenced by: '<S1>/左轮下行'
+  /* Expression: [-19.55,-17.6,-15.25,-13.2,-10.7,-8.05,-6.7,-4,-2.65,1.95,3.65,5.0,7.85,8.95,10.65,11.85,15.85,17.55]
+   * Referenced by: '<S1>/右轮'
    */
-  real_T _tableData_n[8];
+  real_T _tableData_l[18];
 
-  /* Expression: [-100,-60,-30,0,30,60,84.6,95]
-   * Referenced by: '<S1>/左轮下行'
+  /* Expression: [-135,-120,-105,-90,-75,-60,-45,-30,-15,15,30,45,60,75,90,105,120,135]
+   * Referenced by: '<S1>/右轮'
    */
-  real_T _bp01Data[8];
-
-  /* Expression: [-13.8,-10.15,-6.1,0.15,6.85,13.35,15.7,15.7]
-   * Referenced by: '<S1>/右轮上行'
-   */
-  real_T _tableData_l[8];
-
-  /* Expression: [-13.8,-10.1,-5.5,-0.4,7.4,13.85,15.7,15.7]
-   * Referenced by: '<S1>/右轮下行'
-   */
-  real_T _tableData_p[8];
-
-  /* Expression: [-100,-60,-30,0,30,60,82.8,95]
-   * Referenced by: '<S1>/右轮下行'
-   */
-  real_T _bp01Data_n[8];
+  real_T _bp01Data_j[18];
 
   /* Expression: SOC
    * Referenced by: '<S1>/left1'

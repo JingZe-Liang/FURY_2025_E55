@@ -8,9 +8,9 @@
  * 
  * Code generation for model "E55_1030".
  *
- * Model version              : 1.759
+ * Model version              : 1.762
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Sat Dec 13 14:30:39 2025
+ * C source code generated on : Sun Dec 14 14:52:16 2025
  * 
  * Target selection: ec311.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex

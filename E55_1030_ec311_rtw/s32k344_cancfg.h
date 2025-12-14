@@ -3,9 +3,9 @@
  *
  * FILE    : s32k344_cancfg.h
  *
- * VERSION : 1.759
+ * VERSION : 1.762
  *
- * DATE    : Sat Dec 13 14:30:39 2025
+ * DATE    : Sun Dec 14 14:52:15 2025
  *
  * Copyright 2011-2023 ECUCoder. All Rights Reserved.
  */

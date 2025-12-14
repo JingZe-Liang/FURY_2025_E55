@@ -3,9 +3,9 @@
  *
  * FILE    : E55_1030.c
  *
- * VERSION : 1.759
+ * VERSION : 1.762
  *
- * DATE    : Sat Dec 13 14:30:39 2025
+ * DATE    : Sun Dec 14 14:52:15 2025
  *
  * Copyright 2011-2023 ECUCoder. All Rights Reserved.
  */
@@ -6020,28 +6020,19 @@ void E55_1030_step1(void)              /* Sample time: [0.001s, 0.0s] */
   /* Gain: '<S1>/Gain31' */
   rtb_TappedDelay1_idx_3 *= 0.1;
 
-  /* Lookup_n-D: '<S1>/左轮上行' */
+  /* Lookup_n-D: '<S1>/左轮' */
   rtb_TappedDelay1_idx_2 = look1_binlx(rtb_TappedDelay1_idx_3,
-    E55_1030_ConstP.pooled32, E55_1030_ConstP._tableData, 7U);
+    E55_1030_ConstP._bp01Data, E55_1030_ConstP._tableData, 19U);
 
-  /* Lookup_n-D: '<S1>/左轮下行' */
-  rtb_TappedDelay1_idx_6 = look1_binlx(rtb_TappedDelay1_idx_3,
-    E55_1030_ConstP._bp01Data, E55_1030_ConstP._tableData_n, 7U);
-
-  /* Lookup_n-D: '<S1>/右轮上行' */
-  rtb_Gain3 = look1_binlx(rtb_TappedDelay1_idx_3, E55_1030_ConstP.pooled32,
-    E55_1030_ConstP._tableData_l, 7U);
-
-  /* Lookup_n-D: '<S1>/右轮下行' */
+  /* Lookup_n-D: '<S1>/右轮' */
   rtb_TappedDelay1_idx_3 = look1_binlx(rtb_TappedDelay1_idx_3,
-    E55_1030_ConstP._bp01Data_n, E55_1030_ConstP._tableData_p, 7U);
+    E55_1030_ConstP._bp01Data_j, E55_1030_ConstP._tableData_l, 17U);
 
   /* Sum: '<S1>/Add' */
-  rtb_TappedDelay1_idx_2 = ((rtb_TappedDelay1_idx_2 + rtb_TappedDelay1_idx_6) +
-    rtb_Gain3) + rtb_TappedDelay1_idx_3;
+  rtb_TappedDelay1_idx_2 += rtb_TappedDelay1_idx_3;
 
   /* Gain: '<S1>/Gain32' */
-  rtb_TappedDelay4_idx_0 = 0.25 * rtb_TappedDelay1_idx_2;
+  rtb_TappedDelay4_idx_0 = 0.5 * rtb_TappedDelay1_idx_2;
 
   /* Gain: '<S1>/Gain30' */
   rtb_TappedDelay4_idx_3 = 100.0 * rtb_Gain19;
